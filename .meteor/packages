@@ -34,7 +34,6 @@ cfs:standard-packages
 cfs:filesystem
 cfs:ui
 meteor-platform
-cfs:gridfs
 timmyg:wow
 jquery
 natestrauser:animate-css
