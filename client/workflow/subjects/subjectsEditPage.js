@@ -2,6 +2,8 @@ Session.setDefault('selectedSubjectId', false);
 Session.setDefault('selectedSponsor', {_id: "---", name: "---"});
 Session.setDefault('isDeletingFormFromSubject', false);
 
+Meteor.subscribe('uploadsVehicle');
+Meteor.subscribe('uploadsVehicle2');
 
 Router.map(function(){
   this.route('newSubjectRoute', {
@@ -9,7 +11,18 @@ Router.map(function(){
     template: 'subjectsEditPage',
     onBeforeAction: function(){
       setPageTitle("New Subject");
-    }
+    },
+    waitOn: function(){
+      
+      return Meteor.subscribe('uploadsVehicle');
+      return Meteor.subscribe('uploadsVehicle2');
+    },
+    action: function () {
+    if (this.ready())
+      this.render('/subjectsEditPage');
+    else
+      this.render('loading');
+  }
   });
 
 
@@ -22,6 +35,8 @@ Router.map(function(){
     },
     waitOn: function(){
       return Meteor.subscribe('subjects');
+      return Meteor.subscribe('uploadsVehicle');
+      return Meteor.subscribe('uploadsVehicle2');
     },
     data: function () {
       return Subjects.findOne({_id: this.params.id });

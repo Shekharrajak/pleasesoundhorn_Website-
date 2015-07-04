@@ -16,24 +16,66 @@
       </div>
     </div>
 
-  <div class="container" style="padding-top:150px;padding-bottom:400px">
-      <form role="form" id="email-form">
-        <div class="form-group">
-          <label for="inputEmail">Email ID </label>
-          <input type="email" data-fv-emailaddress-multiple="true" class="form-control" id="inputEmail" placeholder="enter ur mail yar">
-        </div>
-      <div class="form-group">
-          <label for="inputSubject">Subject </label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Subject hamesha dekar yar">
-        </div>
-        <div class="form-group">
-          <label for="inputBody">Body</label>
-          <input type="text" class="form-control" id="inputBody" placeholder="Jo bhi send krna he yha likh">
-        </div>
-    <button type ="submit" class = "btn btn-primary">Send mail</button>   
+ <div class="container list-horiz wow fadeIn">
+            
 
-
-      </form>
-    </div>
+              <table id="tableOfStudyForms" class="table table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th>Study ID</th>
+            <th>Image</th>
+            <th>Vehicle Name</th>
+            <th>Description</th>
+            <!-- <th>Creator</th> -->
+            <th>More info</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          {{#each subjectsList}}
+            {{> subjectRowItem }}
+          {{/each}}
+        </tbody>
+      </table>
+      <hr>
+      <ul>
+                <li style="width:200px;padding-left:-100px;padding-right:300px">
+                <a style="width:200px" href="#bookForm">
+                <img style="width:350px" src="/images/tbook.png"  alt="">
+                                
+                           </a>
+              
+                             <h5 style="width:200px"><b>Book Buy and Sell any heavy motor vehicle</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img style="width:300px;paddine-left:10px" src="/images/ttrack.png"  alt="">
+                                
+                           </a>
+              
+                             <h5 style="width:250px"><b>Track your order (Coming Soon)</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img  style="width:200px;height:200px" src="/images/tphone.png" alt="">
+                               
+                           </a>
+              
+                             <h5 style="width:100px"><b>Book @Phone call and whatsapp 07702666623</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img style="width:200px" src="/images/troadsafty.png"  alt="">
+                                
+                           </a>
+              
+                             <h5 style="width:200px"><b>#pshroadsafety (Join our road safety campaign to avoid accidents)</b></h5>
+                          
+                </li>
+            </ul>
+</div>
     
 </template>

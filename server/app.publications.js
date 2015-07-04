@@ -35,3 +35,11 @@ Meteor.publish(null, function (){
 Meteor.publish('uploads', function(){
   return Uploads.find();
 });
+
+Meteor.publish('uploadsVehicle', function(){
+  return Uploads.find();
+});
+
+Meteor.publish('uploadsVehicle2', function(){
+  return Uploads.find();
+});

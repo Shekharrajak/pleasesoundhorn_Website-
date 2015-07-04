@@ -77,10 +77,8 @@
     {{#unless this.isUploaded}}
    {{> FS.UploadProgressBar bootstrap=true class='progress-bar-success progress-bar-striped active' showPercent=true}}
   {{/unless}}
-
-    <p>
+<p>
       {{#if isImage}}
-      
         <a href="{{url}}">
           <img style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
         </a>
