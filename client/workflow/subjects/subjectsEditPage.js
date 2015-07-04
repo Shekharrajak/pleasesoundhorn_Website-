@@ -204,13 +204,6 @@ Template.subjectsEditPage.helpers({
 
 //-------upload image
 
-UploadsVehicle = new FS.Collection('uploadsVehicle', {
-  stores: [
-    //this will store files in ~/uploads folder on your filesystem
-    new FS.Store.FileSystem('uploadsVehicle', { path: '~/uploadsVehicle' })
-  ]
-});
-
 
 
   Template.uploadImageVehicle.helpers({
@@ -233,25 +226,3 @@ UploadsVehicle = new FS.Collection('uploadsVehicle', {
   });
 
 
-if (Meteor.isServer) {
-  UploadsVehicle.allow({
-    insert: function(userId, doc) {
-      //TODO validate if user can insert a file
-      return true;
-    },
-    update: function(userId, doc, fieldNames, modifier) {
-      //TODO validate if user can update a file
-      return true;
-    },
-    remove: function(userId, doc) {
-      //TODO validate if user can remove a file
-      return true;
-    },
-    //you would get access denied without this download allow option
-    //http://stackoverflow.com/questions/26136850/collectionfs-access-denied-403-error-meteor-js
-    download: function(userId, doc) {
-      //TODO validate if user can download a file
-      return true;
-    }
-  });
-}

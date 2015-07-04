@@ -17,7 +17,8 @@
           <br>
           <hr>
            {{> uploadImageVehicle}}
-
+          <hr>
+          {{> hello}}
         </div>
       </div>
       <hr>
@@ -35,9 +36,7 @@
     <input type="file" name="image" />
   </form>
   <br/>
-  <a href="{{url download=true}}">
-          Download
-        </a>
+
   {{#each uploadsVehicle}}
     <p>
       {{#if isImage}}
@@ -57,4 +56,25 @@
       {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
     </p>
   {{/each}}
+</template>
+
+<template name="hello">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h5>Upload file </h5>
+      </div>
+      <div class="panel-body">
+        <p>add file
+          <span class="btn btn-default btn-file ">
+            <input multiple class="file fileInput" type="file"/>
+           </span>
+        </p>
+       </div>
+       <div class="footer">
+
+      </div>
+    </div>
+  </div>         
+      
 </template>
