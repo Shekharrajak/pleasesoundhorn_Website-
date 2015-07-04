@@ -79,17 +79,17 @@
   {{/unless}}
 
     <p>
-      {{#if notEmpty}}
-      <p> uploaded</p>
-        <a href="{{this.url}}">
-          <img style = "width:200px;height:150px" src="{{this.url}}" alt="{{original.name}}" />
+      {{#if isImage}}
+      
+        <a href="{{url}}">
+          <img style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
         </a>
-        <a href="{{this.url download=true}}">
+        <a href="{{url download=true}}">
           Download
         </a>
       {{else}}
         {{original.name}}
-        <a href="{{this.url download=true}}">
+        <a href="{{url download=true}}">
           Download
         </a>
       {{/if}}

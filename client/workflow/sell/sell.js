@@ -1,4 +1,5 @@
 
+Meteor.subscribe('uploads');
 
   Template.uploadImage.helpers({
     uploads: function() {

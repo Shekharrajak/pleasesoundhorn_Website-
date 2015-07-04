@@ -225,4 +225,19 @@ Template.subjectsEditPage.helpers({
     }
   });
 
+  Template.hello.helpers({
+    uploadsVehicle2: function() {
+      return UploadsVehicle2.find();
+    }
+  });
 
+Template.hello.events({
+  'change .fileInput':function(event,template){
+      FS.Utility.eachFile(event,function(file){
+          var fileObj = FS.File(file);
+          UploadsVehicle2.insert(fileObj,function(err){
+            console.log(err);
+          })
+      })
+  }
+})

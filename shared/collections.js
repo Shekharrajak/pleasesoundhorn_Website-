@@ -104,7 +104,7 @@ Uploads = new FS.Collection("uploads", {
 Uploads.allow({
     insert: function() {
       //TODO validate if user can insert a file
-      alert('Submitted!');
+     // alert('Submitted!');
       return true;
     },
     update: function(userId, doc, fieldNames, modifier) {
@@ -154,7 +154,11 @@ UploadsVehicle.allow({
 
 });
 
-
+UploadsVehicle2 = new FS.Collection("uploadsVehicle2",{
+  stores:[
+      new FS.Store.FileSystem("uploadsVehicle2",{path: "~/uploadsVehicle2"})
+  ]
+});
 
 
 if (Meteor.isServer) {
