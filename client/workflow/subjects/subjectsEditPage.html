@@ -8,22 +8,53 @@
           <br>
         </div>
         <div class="col col-md-12">
-          <label for="studyNameInput" >Subject Name</label>
+          <label for="studyNameInput" >Vehicle Name</label>
           <input id="studyNameInput" type="text" class="form-control" placeholder="..." value="{{name}}">
           <br>
 
-          <label for="studyDescriptionInput" >Subject Description</label>
+          <label for="studyDescriptionInput" >Vehicle Description</label>
           <input id="studyDescriptionInput" type="text" class="form-control" placeholder="..." value="{{description}}">
           <br>
+          <hr>
+           {{> uploadImageVehicle}}
 
         </div>
       </div>
       <hr>
 
-      <div id="saveSubjectButton" class="pull-right btn btn-info">Save Subject</div>
+      <div id="saveSubjectButton" class="pull-right btn btn-info">Save Vehicle</div>
       {{#if notNewSubject }}
         <div id="deleteSubjectButton" class="pull-right btn btn-danger with-right-margin">Delete Subject</div>
       {{/if}}
     </div>
   </div>
+</template>
+
+<template name="uploadImageVehicle">
+  <form>
+    <input type="file" name="image" />
+  </form>
+  <br/>
+  <a href="{{url download=true}}">
+          Download
+        </a>
+  {{#each uploadsVehicle}}
+    <p>
+      {{#if isImage}}
+        <a href="{{url}}">
+          <img style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
+        </a>
+        <a href="{{url download=true}}">
+          Download
+        </a>
+      {{else}}
+        {{original.name}}
+        <a href="{{url download=true}}">
+          Download
+        </a>
+      {{/if}}
+      <br/>
+      {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
+    </p>
+  {{/each}}
 </template>
