@@ -9,7 +9,7 @@ AccountsEntry = {
 
 Meteor.startup(function() {
   AccountsEntry.config({
-    signupCode: 'penicillin'
+    signupCode: 'spr'
   });
 });
 Accounts.config({

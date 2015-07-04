@@ -34,29 +34,8 @@ Template.landingPage.events({
       //sponsor_id: sponsor._id
     };
 
-    if(this._id){
-      console.count('this._id: ' + this._id);
-
-      var recordId = Books.update({_id: this._id},{$set:{
-        inputName: formObject.inputName,
-        inputLoad: formObject.inputLoad,
-        inputFrom: formObject.inputFrom,
-        inputTo: formObject.inputTo,
-        inputEmail: formObject.inputEmail,
-        inputNumber: formObject.inputNumber,
-        inputVehicleSelected: formObject.inputVehicleSelected,
-        inputVehicleNumbers: formObject.inputVehicleNumbers,
-        inputBookDate: formObject.inputBookDate,
-
-        inputLoad: formObject.in,
-        inputName: formObject.inputName,
-        inputLoad: formObject.inputLoad,
-        url: formObject.url,
-        //owner: formObject.owner,
-        //owner_id: formObject.owner_id,
-        //sponsor: formObject.sponsor,
-        //sponsor_id: formObject.sponsor_id
-      }});
+  
+     
       // console.log('Studies updated.  Now trying to rename other collections.')
       // Meteor.call('renameStudy', formObject, function(error, result){
       //   if(error){
@@ -67,7 +46,7 @@ Template.landingPage.events({
       //   }
       // });
 
-    }else{
+    
       if(confirm('Are you sure you want to Book ,Please check informations once again !')){
         var recordId = Books.insert({
        inputName: formObject.inputName,
@@ -91,14 +70,15 @@ Template.landingPage.events({
         timestamp: new Date(),
         active: false
       });
+          console.log(recordId);
+      confirm('Book added !')
     }
       
-      console.log(recordId);
-      confirm('Book added !')
-
+     confirm('Book added outer!')
+       Router.go('/');
     }
-    Router.go('/');
-  }
+   
+  
 
 });
 
