@@ -8,7 +8,7 @@ Router.map(function(){
     path: '/new/study',
     template: 'studiesEditPage',
     onBeforeAction: function(){
-      setPageTitle("New Study");
+      setPageTitle("New booking");
     }
   });
 
@@ -21,7 +21,7 @@ Router.map(function(){
       Session.set('selectedStudyId', this.params.id);
     },
     waitOn: function(){
-      return Meteor.subscribe('studies');
+      return Meteor.subscribe('books');
     },
     data: function () {
       return Studies.findOne({_id: this.params.id });
@@ -124,9 +124,15 @@ Template.studiesEditPage.events({
     var sponsor = Session.get('selectedSponsor');
 
     var formObject = {
-      name: $('#studyNameInput').val(),
-      description: $('#studyDescriptionInput').val(),
-      url: $('#studyUrlInput').val(),
+      inputName: $('#bookNameInput').val(),
+      inputLoad: $('#inputLoad').val(),
+      inputNumber: $('#inputNumber').val(),
+      inputEmail: $('#inputEmail').val(),
+      inputTo: $('#inputTo').val(),
+      inputFrom: $('#inputFrom').val(),
+      inputBookDate: $('#inputBookDate').val(),
+      inputVehicleNumbers: $('#inputVehicleNumbers').val(),
+      inputVehicleSelected: $('#inputVehicleSelected').val(),
       createdAt: new Date(),
       owner: Meteor.user().profile.name,
       owner_id: Meteor.userId(),
@@ -137,9 +143,20 @@ Template.studiesEditPage.events({
     if(this._id){
       console.count('this._id: ' + this._id);
 
-      var recordId = Studies.update({_id: this._id},{$set:{
-        name: formObject.name,
-        description: formObject.description,
+      var recordId = Books.update({_id: this._id},{$set:{
+        inputName: formObject.inputName,
+        inputLoad: formObject.inputLoad,
+        inputFrom: formObject.inputFrom,
+        inputTo: formObject.inputTo,
+        inputEmail: formObject.inputEmail,
+        inputNumber: formObject.inputNumber,
+        inputVehicleSelected: formObject.inputVehicleSelected,
+        inputVehicleNumbers: formObject.inputVehicleNumbers,
+        inputBookDate: formObject.inputBookDate,
+
+        inputLoad: formObject.in,
+        inputName: formObject.inputName,
+        inputLoad: formObject.inputLoad,
         url: formObject.url,
         owner: formObject.owner,
         owner_id: formObject.owner_id,
@@ -157,9 +174,17 @@ Template.studiesEditPage.events({
       // });
 
     }else{
-      var recordId = Studies.insert({
-        name: formObject.name,
-        description: formObject.description,
+      var recordId = Books.insert({
+       inputName: formObject.inputName,
+        inputLoad: formObject.inputLoad,
+        inputFrom: formObject.inputFrom,
+        inputTo: formObject.inputTo,
+        inputEmail: formObject.inputEmail,
+        inputNumber: formObject.inputNumber,
+        inputVehicleSelected: formObject.inputVehicleSelected,
+        inputVehicleNumbers: formObject.inputVehicleNumbers,
+        inputBookDate: formObject.inputBookDate,
+
         url: formObject.url,
         owner: formObject.owner,
         owner_id: formObject.owner_id,

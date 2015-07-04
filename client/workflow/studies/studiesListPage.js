@@ -25,10 +25,10 @@ Router.map(function(){
       }
     },
     onBeforeAction: function() {
-      setPageTitle("Studies");
+      setPageTitle("Books");
     },
     waitOn: function(){
-      return Meteor.subscribe('studies');
+      return Meteor.subscribe('books');
     }
   });
 });
@@ -39,13 +39,13 @@ Router.map(function(){
 Template.studiesListPage.helpers({
   studiesList: function(){
     Session.set('receivedData', new Date());
-    Session.set('studyPaginationCount', Math.floor(Studies.find().count() / Session.get('studyTableLimit')));
+    Session.set('studyPaginationCount', Math.floor(Books.find().count() / Session.get('studyTableLimit')));
     //return Forms.find({},{limit: Session.get('studyTableLimit'), skip: Session.get('studySkipCount')});
 
     if(Session.get('studySearchFilter').length === 17){
-      return Studies.find({_id: Session.get('studySearchFilter')});
+      return Books.find({_id: Session.get('studySearchFilter')});
     }else{
-      return Studies.find({name: {
+      return Books.find({name: {
         $regex: Session.get('studySearchFilter'),
         $options: 'i'
       }},{limit: Session.get('studyTableLimit'), skip: Session.get('studySkipCount')});

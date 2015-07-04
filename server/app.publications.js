@@ -8,8 +8,8 @@ Meteor.publish('data', function(){
   return Data.find();
 });
 
-Meteor.publish('studies', function(){
-  return Studies.find();
+Meteor.publish('books', function(){
+  return Books.find();
 });
 Meteor.publish('sponsors', function(){
   return Sponsors.find();
