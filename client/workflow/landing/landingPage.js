@@ -74,3 +74,7 @@ Template.landingPage.helpers({
   }
 });
 
+Template.landingPage.rendered =function(){
+  new WOW().init();
+};
+

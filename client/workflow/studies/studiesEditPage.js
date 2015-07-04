@@ -17,7 +17,7 @@ Router.map(function(){
     path: '/edit/study/:id',
     template: 'studiesEditPage',
     onBeforeAction: function(){
-      setPageTitle("Edit Study");
+      setPageTitle("Edit Book");
       Session.set('selectedStudyId', this.params.id);
     },
     waitOn: function(){

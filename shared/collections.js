@@ -24,9 +24,9 @@ Forms.allow({
   }
 });
 
-
-Studies =  new Meteor.Collection("studies");
-Studies.allow({
+//replacing book from studied
+Books =  new Meteor.Collection("books");
+Books.allow({
   insert: function(){
     return true;
   },

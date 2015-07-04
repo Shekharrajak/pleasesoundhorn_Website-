@@ -22,6 +22,33 @@ a{
 	color:white;
 
 }
+.list-horiz {
+	width:1300px;
+	right:0px;
+}
+.list-horiz ul li {
+	
+	  list-style:none;
+	  float: left;
+	margin: 0px;
+	position: relative;
+	left: -10px;
+
+	background: none;
+	
+	padding:2px 0px 100px 1px;
+	
+
+
+}
+.list-horiz ul li > a,.list-horiz ul li > a img {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	padding-right: 10px;
+	
+	
+}
 .animated {
 	-webkit-animation-duration: 0.7s;
 	   -moz-animation-duration: 0.7s;
