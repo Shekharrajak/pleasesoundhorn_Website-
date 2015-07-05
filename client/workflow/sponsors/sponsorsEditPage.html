@@ -5,21 +5,53 @@
 
       <div class="row">
         <div class="col col-md-12">
-          <h4>Sponsor Configuration</h4>
+          <h4>Sell Configuration</h4>
           <br>
         </div>
-        <div class="col col-md-12">
-          <label for="sponsorNameInput" >Name</label>
-          <input id="sponsorNameInput" type="text" class="form-control" placeholder="..." value="{{name}}">
-          <br>
+      
+           <div class="container wow fadeInUp" style="padding-top:150px;padding-bottom:400px">
+     
+      <form role="form" id="sellForm">
+      
 
-          <label for="sponsorDescriptionInput" >Description</label>
-          <input id="sponsorDescriptionInput" type="text" class="form-control" placeholder="..." value="{{description}}">
-          <br>
+        <div class="form-group">
+          <label for="inputName">Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="" value="{{inputName}}">
+        </div>
+        <div class="form-group">
+          <label for="inputNumber"> Phone Number</label>
+          <input type="text" class="form-control" id="inputNumber" placeholder="Contact number" value="{{inputNumber}}">
+        </div>
+         <div class="form-group">
+          <label for="inputEmail">Email ID </label>
+          <input type="email" data-fv-emailaddress-multiple="true" class="form-control" id="inputEmail" placeholder="Enter your active email ID" value="{{inputEmail}}">
+        </div>
+        <div class="form-group">
+          <label for="inputVehicleReg">Vehicle registration Number</label>
+          <input type="text" class="form-control" id="inputVehicleReg" placeholder="Vehicle registration Number" value="{{inputVehicleReg}}">
+        </div>
+        <div class="form-group">
+          <label for="inputSpecification">Vehicle Specifications </label>
+          <input type="text" class="form-control" id="inputSpecification" placeholder="Vehicle Specifications" value="{{inputSpecification}}">
+        </div>
+        <div class="form-group">
+          <label for="inputDesc">Vehicle Description and Condition</label>
+          <input type="text" class="form-control" id="inputDesc" placeholder="Vehicle Description and Condition" value="{{inputDesc}}">
+        </div>
 
-          <label for="sponsorUrlInput" >URL</label>
-          <input id="sponsorUrlInput" type="text" class="form-control" placeholder="..." value="{{url}}">
-          <br>
+       
+      <div class="form-group">
+          <label for="inputPlace">Place</label>
+          <input type="text" class="form-control" id="inputPlace" placeholder="place " value="{{inputPlace}}">
+        </div>
+        <div class="form-group">
+          <label for="inputPrice">Desired Price</label>
+          <input type="text" class="form-control" id="inputPrice" placeholder="Desired Price" value="{{inputPrice}}">
+        </div>
+   
+       
+      </form>
+    </div>
 
         </div>
       </div>
@@ -27,5 +59,5 @@
       <div id="saveSponsorButton" class="pull-right btn btn-info">Save Sponsor</div>
 
     </div>
-  </div>
+  
 </template>

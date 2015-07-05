@@ -15,7 +15,7 @@ Router.map(function(){
     path: '/editsponsor/:id',
     template: 'sponsorsEditPage',
     onBeforeAction: function(){
-      setPageTitle("Edit Sponsor");
+      setPageTitle("Edit Selling Object");
     },
     waitOn: function(){
       return Meteor.subscribe('sponsors');
@@ -49,15 +49,19 @@ Template.sponsorsEditPage.events({
       console.count('this._id: ' + this._id);
 
       var formObject = {
-        _id: this._id,
-        name: $('#sponsorNameInput').val(),
-        description: $('#sponsorDescriptionInput').val(),
-        url: $('#sponsorUrlInput').val(),
-        createdAt: new Date(),
-        owner: Meteor.user().profile.name,
-        owner_id: Meteor.userId()
+         _id: this._id,
+       
+        inputPrice:$('#inputPrice').val(),
+        inputDesc:$('#inputDesc').val(),
+        inputSpecification:$('#inputSpecification').val(),
+        inputVehicleReg:$('#inputVehicleReg').val(),
+        inputEmail:$('#inputEmail').val(),
+        inputNumber:$('#inputNumber').val(),
+        inputName:$('#inputName').val(),
+        inputImgUrl:$('#inputImgUrl').val(),
+        createdAt: new Date()
       };
-
+/*
       console.log('Sponsors updated.  Now trying to rename other collections.')
       Meteor.call('renameSponsor', formObject, function(error, result){
         if(error){
@@ -66,19 +70,36 @@ Template.sponsorsEditPage.events({
         if(result){
           console.log(result);
         }
-      });
+      });*/
+      
+      var recordId = Sponsors.update({_id: this._id},{$set:{
+        inputName: formObject.inputPrice,
+        inputLoad: formObject.inputDesc,
+        inputFrom: formObject.inputSpecification,
+        inputTo: formObject.inputVehicleReg,
+        inputEmail: formObject.inputEmail,
+        inputNumber: formObject.inputName,
+        inputVehicleSelected: formObject.inputNumber,
+        inputVehicleNumbers: formObject.inputName,
+        inputBookDate: formObject.inputImgUrl,
+        createdAt :formObject.createdAt
+        
+      }});
+
 
     }else{
-      var recordId = Sponsors.insert({
-        name: $('#sponsorNameInput').val(),
-        description: $('#sponsorDescriptionInput').val(),
-        url: $('#sponsorUrlInput').val(),
-        invite_code: $('#sponsorInviteCodeInput').val(),
-        owner: Meteor.user().profile.name,
-        owner_id: Meteor.userId(),
-        creator: Meteor.user().profile.name,
-        creator_id: Meteor.userId(),
-        timestamp: new Date()
+        var recordId = Sponsors.insert({
+        inputPrice: formObject.inputPrice,
+        inputDesc: formObject.inputDesc,
+        inputSpecification: formObject.inputSpecification,
+        inputVehicleReg: formObject.inputVehicleReg,
+        inputEmail: formObject.inputEmail,
+        inputName: formObject.inputName,
+        inputNumber: formObject.inputNumber,
+        //inputVehicleNumbers: formObject.inputName,
+        inputImgUrl: formObject.inputImgUrl,
+        createdAt :formObject.createdAt
+        
       });
       console.log(recordId);
 

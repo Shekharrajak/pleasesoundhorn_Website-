@@ -184,7 +184,9 @@ Router.map(function() {
        this.route('sell', {
       path: '/sell',
      //yieldTemplates: getYieldTemplates(),
-
+     waitOn: function(){
+      return Meteor.subscribe('sponsors');
+    }
     });
     this.route('other', {
       path: '/other',

@@ -7,7 +7,7 @@
             <input id="sponsorSearchInput" type="text" class="form-control" placeholder="search sponsors..." />
           </div>
           <div class="col-md-6 pull-right">
-            <button id="createSponsorButton" class="btn btn-info">Create Sponsor</button>
+            <button id="createSponsorButton" class="btn btn-info">Create Sell object</button>
           </div>
         </div>
       <hr/>
@@ -16,22 +16,22 @@
         <thead>
         <tr>
           <th>
-            <span class="line"></span>ObjectId
+            <span class="line"></span>Id
           </th>
           <th>
-            <span class="line"></span>Brand Name
+            <span class="line"></span>Name
           </th>
           <th>
-            <span class="line"></span>Description
+            <span class="line"></span>phone Number
           </th>
           <th>
-            <span class="line"></span>Owner
+            <span class="line"></span>Vehicle Reg
           </th>
           <th>
-            <span class="line"></span>Created At
+            <span class="line"></span>Image
           </th>
           <th>
-            <span class="line"></span>URL
+            <span class="line"></span>Price
           </th>
         </tr>
         </thead>
@@ -58,19 +58,19 @@
 <!--       <i class="fa fa-book"></i> -->
     </td>
     <td>
-      {{ name }}
+      {{ inputName }}
     </td>
     <td>
-      {{ description }}
+      {{ inputNumber }}
     </td>
     <td>
-      {{ owner }}
+      {{ inputVehicleReg }}
     </td>
     <td>
-      {{ getCreatedAt }}
+      {{ inputImgUrl }}
     </td>
     <td>
-      {{ url }}
+      {{ inputPrice }}
     </td>
   </tr>
 </template>

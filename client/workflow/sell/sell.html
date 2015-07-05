@@ -27,40 +27,40 @@
         </div>
 
         <div class="form-group">
-          <label for="inputSubject">Name</label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Shubh Name">
+          <label for="inputName">Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Shubh Name">
         </div>
         <div class="form-group">
-          <label for="inputSubject"> Phone Number</label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Contact number">
+          <label for="inputNumber"> Phone Number</label>
+          <input type="text" class="form-control" id="inputNumber" placeholder="Contact number">
         </div>
          <div class="form-group">
           <label for="inputEmail">Email ID </label>
           <input type="email" data-fv-emailaddress-multiple="true" class="form-control" id="inputEmail" placeholder="Enter your active email ID">
         </div>
         <div class="form-group">
-          <label for="inputSubject">Vehicle registration Number</label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Vehicle registration Number">
+          <label for="inputVehicleReg">Vehicle registration Number</label>
+          <input type="text" class="form-control" id="inputVehicleReg" placeholder="Vehicle registration Number">
         </div>
         <div class="form-group">
-          <label for="inputSubject">Vehicle Specifications </label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Vehicle Specifications">
+          <label for="inputSpecification">Vehicle Specifications </label>
+          <input type="text" class="form-control" id="inputSpecification" placeholder="Vehicle Specifications">
         </div>
         <div class="form-group">
-          <label for="inputSubject">Vehicle Description and Condition</label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="Vehicle Description and Condition">
+          <label for="inputDesc">Vehicle Description and Condition</label>
+          <input type="text" class="form-control" id="inputDesc" placeholder="Vehicle Description and Condition">
         </div>
 
        
       <div class="form-group">
-          <label for="inputSubject">Place</label>
-          <input type="text" class="form-control" id="inputSubject" placeholder="place ">
+          <label for="inputPlace">Place</label>
+          <input type="text" class="form-control" id="inputPlace" placeholder="place ">
         </div>
         <div class="form-group">
-          <label for="inputBody">Desired Price</label>
-          <input type="text" class="form-control" id="inputBody" placeholder="Desired Price">
+          <label for="inputPrice">Desired Price</label>
+          <input type="text" class="form-control" id="inputPrice" placeholder="Desired Price">
         </div>
-    <button type ="submit" class = "btn btn-primary">Send mail</button>   
+    <button type ="submit" id="saveSellButton" class = "btn btn-primary">Send mail</button>   
 
        
       </form>
@@ -85,6 +85,8 @@
         <a href="{{url download=true}}">
           Download
         </a>
+        <a>{{urlImg}}</a>
+
       {{else}}
         {{original.name}}
         <a href="{{url download=true}}">

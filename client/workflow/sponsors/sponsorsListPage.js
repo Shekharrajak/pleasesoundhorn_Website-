@@ -45,9 +45,9 @@ Template.sponsorsListPage.helpers({
             $regex: Session.get('sponsorsListSearchFilter'),
             $options: 'i'
           }},
-          {name: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }},
-          {description: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }},
-          {owner: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }}
+          {inputName: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }},
+          {inputDesc: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }},
+          {inputNumber: { $regex: Session.get('sponsorsListSearchFilter'), $options: 'i' }}
         ]},{
           limit: Session.get('sponsorsListTableLimit'),
           skip: Session.get('sponsorsListSkipCount'),
@@ -73,9 +73,9 @@ Template.sponsorsListPage.events({
   'click .sponsorListItem': function () {
     Session.set('selectedSponsorId', {
       _id: this._id,
-      name: this.name
+      inputName: this.name
     });
-    Router.go('/sponsor/' + this._id);
+    Router.go('/editsponsor/' + this._id);
   },
   'keyup #sponsorsSearchInput':function(){
     Session.set('sponsorsListSearchFilter', $('#sponsorsSearchInput').val());

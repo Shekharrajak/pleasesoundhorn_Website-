@@ -130,7 +130,7 @@ Template.subjectsEditPage.events({
       var recordId = Subjects.update({_id: this._id},{$set:{
         name: formObject.name,
         description: formObject.description,
-        url: formObject.url,
+        url: '',
         owner: formObject.owner,
         owner_id: formObject.owner_id,
         sponsor: formObject.sponsor,
@@ -225,7 +225,10 @@ Template.subjectsEditPage.helpers({
     },
     uploads: function() {
       return Uploads.find();
-    }
+    },
+    urlImgVehicle:function(){
+      Meteor.call('urlImgVehicleMethod','selectedSubject',this.url);
+    } 
 
   });
 
@@ -261,4 +264,8 @@ Template.hello.events({
           })
       })
   }
-})
+});
+
+/*Subjects.update({_id: this._id},{$set:{
+        inputImgURL: imgurl
+  }});*/

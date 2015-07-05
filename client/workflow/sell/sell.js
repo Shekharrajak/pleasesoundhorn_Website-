@@ -1,5 +1,6 @@
 
 Meteor.subscribe('uploads');
+Meteor.subscribe('sponsors');
 
   Template.uploadImage.helpers({
     uploads: function() {
@@ -20,7 +21,8 @@ Meteor.subscribe('uploads');
     }
   },*/
   urlImg :function(){
-      return this.url;
+      Session.set('varUrl',this.url);
+      return 'varUrl';
     }
 
   });
@@ -61,3 +63,55 @@ Meteor.subscribe('uploads');
     }
   });
 }*/
+
+
+Template.sell.events({
+  'click #saveSellButton':function(){
+    console.count('click #saveSellButton');
+    
+      console.count('this._id: ' + this._id);
+
+     /* var formObject = {
+        
+        //owner: Meteor.user().profile.name,
+        //owner_id: Meteor.userId()
+      };*/
+/*
+      console.log('Sponsors updated.  Now trying to rename other collections.')
+      Meteor.call('renameSponsor', formObject, function(error, result){
+        if(error){
+          console.error(error);
+        }
+        if(result){
+          console.log(result);
+        }
+      });*/
+
+    if(confirm('Are you sure you want to Sell ,Please check informations once again !')){
+      var recordId = Sponsors.insert({
+
+      _id: this._id,
+       
+        inputPrice:$('#inputPrice').val(),
+        inputDesc:$('#inputDesc').val(),
+        inputSpecification:$('#inputSpecification').val(),
+        inputVehicleReg:$('#inputVehicleReg').val(),
+        inputEmail:$('#inputEmail').val(),
+        inputNumber:$('#inputNumber').val(),
+        inputName:$('#inputName').val(),
+        inputImgUrl:$('#inputImgUrl').val(),
+        createdAt: new Date(),
+        //owner: Meteor.user().profile.name,
+        //owner_id: Meteor.userId(),
+        //creator: Meteor.user().profile.name,
+        //creator_id: Meteor.userId(),
+        //imestamp: new Date()
+      });
+      console.log(recordId);
+
+       Router.go('/sell/');
+    }
+   }
+
+  
+});

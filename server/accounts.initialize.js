@@ -27,6 +27,7 @@ if (Meteor.users.find().count() === 0) {
       roles: ["Reviewer"],
       sponsor: "ACME Pharmaceuticals"
     }
+
   ];
 
   users.forEach(function(user){
