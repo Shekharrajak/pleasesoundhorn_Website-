@@ -20,10 +20,10 @@ Meteor.subscribe('sponsors');
       return {};
     }
   },*/
-  urlImg :function(){
-      Session.set('varUrl',this.url);
-      return 'varUrl';
-    }
+ /* urlImg :function(){
+      Sponsors.update({_id: this._id},{$set : {inputImgUrl:this.url}});
+      
+    }*/
 
   });
 
@@ -37,6 +37,7 @@ Meteor.subscribe('sponsors');
           console.log(err);
         });
       });
+      Session.set('selectedFileId', this._id);
     }
   });
 
@@ -99,7 +100,7 @@ Template.sell.events({
         inputEmail:$('#inputEmail').val(),
         inputNumber:$('#inputNumber').val(),
         inputName:$('#inputName').val(),
-        inputImgUrl:$('#inputImgUrl').val(),
+        inputImgUrl: Uploads.file.findOne({ _id: 'selectedFileId' }).url,
         createdAt: new Date(),
         //owner: Meteor.user().profile.name,
         //owner_id: Meteor.userId(),

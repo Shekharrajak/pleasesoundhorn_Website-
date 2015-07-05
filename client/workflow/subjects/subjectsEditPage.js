@@ -1,6 +1,7 @@
 Session.setDefault('selectedSubjectId', false);
 Session.setDefault('selectedSponsor', {_id: "---", name: "---"});
 Session.setDefault('isDeletingFormFromSubject', false);
+Session.setDefault('selectedFileIdBuy', null);
 
 
 
@@ -47,6 +48,43 @@ Router.map(function(){
 });
 
 
+
+
+
+
+
+
+  Template.uploadImageVehicle.helpers({
+    uploadsVehicle: function() {
+      return UploadsVehicle.find();
+    },
+    uploads: function() {
+      return Uploads.find();
+    }
+   /* urlImgVehicle:function(){
+      Session.set('imgurl', this.url);
+       Subjects.update({_id:'selectedSubject' },{$set:{
+        url: this.url
+  }});*/
+      /*Meteor.call('urlImgVehicleMethod','selectedSubjectId',this.url);
+    */
+ 
+  });
+
+  Template.uploadImageVehicle.events({
+    'change input[type="file"]': function(evt) {
+      console.log('changed');
+      FS.Utility.eachFile(evt, function(file) {
+        var fileObj = new FS.File(file);
+        fileObj.customProperty = 'hmmm';
+        UploadsVehicle.insert(fileObj, function(err) {
+          console.log(err);
+        });
+        Session.set('selectedFileIdBuy', this._id);
+      });
+      
+    }
+  });
 
 //------------------------------------------------
 // EVENTS
@@ -130,11 +168,12 @@ Template.subjectsEditPage.events({
 
     if(this._id){
       console.count('this._id: ' + this._id);
-
+      //var fileObj = new FS.File(UploadsVehicle);
+      //fileObj.findOne({ _id: Session.get('selectedFileIdBuy').id }).url;
       var recordId = Subjects.update({_id: this._id},{$set:{
         name: formObject.name,
         description: formObject.description,
-        url: '',
+        url: UploadsVehicle.find({ _id: Session.get('selectedFileIdBuy').id })
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
         //sponsor: formObject.sponsor,
@@ -149,12 +188,13 @@ Template.subjectsEditPage.events({
       //     console.log(result);
       //   }
       // });
+      Session.set('selectedFileIdBuy',null); 
 
     }else{
       var recordId = Subjects.insert({
         name: formObject.name,
         description: formObject.description,
-        url: formObject.url,
+        url:  url: UploadsVehicle.find({ _id: Session.get('selectedFileIdBuy').id })
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
        // creator: Meteor.user().profile.name,
@@ -167,6 +207,7 @@ Template.subjectsEditPage.events({
       });
       console.log(recordId);
       alert('record is added !')
+       Session.set('selectedFileIdBuy',null); 
 
     }
     Router.go('/subjects/');
@@ -221,37 +262,6 @@ Template.subjectsEditPage.helpers({
 
 //-------upload image
 
-
-
-  Template.uploadImageVehicle.helpers({
-    uploadsVehicle: function() {
-      return UploadsVehicle.find();
-    },
-    uploads: function() {
-      return Uploads.find();
-    },
-    urlImgVehicle:function(){
-      Session.set('imgurl', this.url);
-       Subjects.update({_id: 'selectedSubjectId'},{$set:{
-        url: this.url
-  }});
-      /*Meteor.call('urlImgVehicleMethod','selectedSubjectId',this.url);
-    */
-} 
-  });
-
-  Template.uploadImageVehicle.events({
-    'change input[type="file"]': function(evt) {
-      console.log('changed');
-      FS.Utility.eachFile(evt, function(file) {
-        var fileObj = new FS.File(file);
-        fileObj.customProperty = 'hmmm';
-        UploadsVehicle.insert(fileObj, function(err) {
-          console.log(err);
-        });
-      });
-    }
-  });
 
   Template.hello.helpers({
     uploadsVehicle2: function() {

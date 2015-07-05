@@ -185,7 +185,8 @@ Router.map(function() {
       path: '/sell',
      //yieldTemplates: getYieldTemplates(),
      waitOn: function(){
-      return Meteor.subscribe('sponsors');
+      Meteor.subscribe('uploads');
+      Meteor.subscribe('sponsors');
     }
     });
     this.route('other', {
