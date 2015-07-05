@@ -16,7 +16,10 @@ Router.map(function(){
 });
 Template.subjectsRecordPage.events({
   'click #editSubjectButton':function(){
-    Router.go('/edit/subject/' + this._id);
+    // Session.set('selectedSubject', this);
+     //Router.go('/new/subjects/' + this._id);
+     //Session.set('currentForm', this._id);
+    Router.go('/edit/subjects/'+this._id);
   },
   'click #subjectDeleteButton':function(){
     if(confirm('Are you sure you want to delete ' + this._id + "?")){

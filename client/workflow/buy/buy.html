@@ -38,44 +38,19 @@
         </tbody>
       </table>
       <hr>
-      <ul>
-                <li style="width:200px;padding-left:-100px;padding-right:300px">
-                <a style="width:200px" href="#bookForm">
-                <img style="width:350px" src="/images/tbook.png"  alt="">
-                                
-                           </a>
-              
-                             <h5 style="width:200px"><b>Book Buy and Sell any heavy motor vehicle</b></h5>
-                            
-                </li>
-                <li>
-                <a  href="#">
-                <img style="width:300px;paddine-left:10px" src="/images/ttrack.png"  alt="">
-                                
-                           </a>
-              
-                             <h5 style="width:250px"><b>Track your order (Coming Soon)</b></h5>
-                            
-                </li>
-                <li>
-                <a  href="#">
-                <img  style="width:200px;height:200px" src="/images/tphone.png" alt="">
-                               
-                           </a>
-              
-                             <h5 style="width:100px"><b>Book @Phone call and whatsapp 07702666623</b></h5>
-                            
-                </li>
-                <li>
-                <a  href="#">
-                <img style="width:200px" src="/images/troadsafty.png"  alt="">
-                                
-                           </a>
-              
-                             <h5 style="width:200px"><b>#pshroadsafety (Join our road safety campaign to avoid accidents)</b></h5>
-                          
-                </li>
-            </ul>
+      
 </div>
     
+</template>
+
+<template name="subjectRowItem">
+  <tr class="individualFormRow">
+<!--     <td><i class="fa {{ getStar }}"></i></td> -->
+<!--     <td>{{ createdAt }}</td> -->
+    <td>{{ _id }}</td>
+    <td>{{ name }}</td>
+    
+    <td><a href="{{url}}" > <img src="{{url}}" /> </a></td>
+    <td>{{ description }}</td>
+  </tr>
 </template>

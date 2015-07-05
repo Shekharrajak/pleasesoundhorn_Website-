@@ -8,12 +8,12 @@
           <br>
         </div>
         <div class="col col-md-12">
-          <label for="studyNameInput" >Vehicle Name</label>
-          <input id="studyNameInput" type="text" class="form-control" placeholder="..." value="{{name}}">
+          <label for="inputNameVehicle" >Vehicle Name</label>
+          <input id="inputNameVehicle" type="text" class="form-control" placeholder="Model number and company name" value="{{name}}">
           <br>
 
-          <label for="studyDescriptionInput" >Vehicle Description</label>
-          <input id="studyDescriptionInput" type="text" class="form-control" placeholder="..." value="{{description}}">
+          <label for="inputDesc" >Vehicle Description</label>
+          <input id="inputDesc" type="text" class="form-control" placeholder="Tell something about Vehicle" value="{{description}}">
           <br>
           <hr>
            {{> uploadImageVehicle}}
@@ -33,7 +33,7 @@
 
 <template name="uploadImageVehicle">
   <form>
-    <input type="file" name="image" />
+    <input id ="inputImgURL" type="file" name="image" />
   </form>
   <br/>
 
@@ -41,7 +41,7 @@
     <p>
       {{#if isImage}}
         <a href="{{url}}">
-          <img style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
+          <img   style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
         </a>
         <a href="{{url download=true}}">
           Download

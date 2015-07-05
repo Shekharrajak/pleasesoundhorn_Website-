@@ -252,7 +252,7 @@ Template.studiesEditPage.helpers({
     if(this.name){
       return this.name;
     }else{
-      return "New Study";
+      return "New Vehcile";
     }
   },
   selectedStudy: function(){

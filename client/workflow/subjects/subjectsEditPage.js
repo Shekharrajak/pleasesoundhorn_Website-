@@ -2,41 +2,39 @@ Session.setDefault('selectedSubjectId', false);
 Session.setDefault('selectedSponsor', {_id: "---", name: "---"});
 Session.setDefault('isDeletingFormFromSubject', false);
 
-Meteor.subscribe('uploadsVehicle');
-Meteor.subscribe('uploadsVehicle2');
+
 
 Router.map(function(){
   this.route('newSubjectRoute', {
     path: '/new/subject',
     template: 'subjectsEditPage',
     onBeforeAction: function(){
-      setPageTitle("New Subject");
+      setPageTitle("New Vehicle");
     },
     waitOn: function(){
-      
-      return Meteor.subscribe('uploadsVehicle');
-      return Meteor.subscribe('uploadsVehicle2');
+       return [ Meteor.subscribe('subjects'),
+       Meteor.subscribe('uploadsVehicle'),
+       Meteor.subscribe('uploadsVehicle2'),
+       Meteor.subscribe('uploads')
+       ]
     },
-    action: function () {
-    if (this.ready())
-      this.render('/subjectsEditPage');
-    else
-      this.render('loading');
-  }
+   
   });
 
 
   this.route('subjectsEditRoute', {
-    path: '/edit/study/:id',
+    path: '/edit/subjects/:id',
     template: 'subjectsEditPage',
     onBeforeAction: function(){
-      setPageTitle("Edit Subject");
+      setPageTitle("Edit Vehicle");
       Session.set('selectedSubjectId', this.params.id);
     },
     waitOn: function(){
-      return Meteor.subscribe('subjects');
-      return Meteor.subscribe('uploadsVehicle');
-      return Meteor.subscribe('uploadsVehicle2');
+      return [ Meteor.subscribe('subjects'),
+       Meteor.subscribe('uploadsVehicle'),
+       Meteor.subscribe('uploadsVehicle2'),
+       Meteor.subscribe('uploads')
+       ]
     },
     data: function () {
       return Subjects.findOne({_id: this.params.id });
@@ -116,9 +114,9 @@ Template.subjectsEditPage.events({
     var sponsor = Session.get('selectedSponsor');
 
     var formObject = {
-      name: $('#studyNameInput').val(),
-      description: $('#studyDescriptionInput').val(),
-      url: $('#studyUrlInput').val(),
+      name: $('#inputNameVehicle').val(),
+      description: $('#inputDesc').val(),
+      url: $('#inputImgURL').val(),
       createdAt: new Date(),
       owner: Meteor.user().profile.name,
       owner_id: Meteor.userId(),
@@ -164,7 +162,7 @@ Template.subjectsEditPage.events({
         active: false
       });
       console.log(recordId);
-
+      alert('record is added !')
 
     }
     Router.go('/subjects/');
@@ -224,7 +222,11 @@ Template.subjectsEditPage.helpers({
   Template.uploadImageVehicle.helpers({
     uploadsVehicle: function() {
       return UploadsVehicle.find();
+    },
+    uploads: function() {
+      return Uploads.find();
     }
+
   });
 
   Template.uploadImageVehicle.events({
@@ -243,7 +245,11 @@ Template.subjectsEditPage.helpers({
   Template.hello.helpers({
     uploadsVehicle2: function() {
       return UploadsVehicle2.find();
-    }
+    },
+    uploads: function() {
+      return Uploads.find();
+    },
+    /*Session.set(inputImgURL, this.url);*/
   });
 
 Template.hello.events({

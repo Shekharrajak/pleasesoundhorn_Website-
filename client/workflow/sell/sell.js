@@ -9,7 +9,20 @@ Meteor.subscribe('uploads');
     if(Session.get(uploads.find().count() > 0)){
       return "active";
     }
-  }
+    
+  },
+ /*  selectedSubject: function(){
+    console.log(Session.get(this._id));
+    if(Session.get(this._id){
+      return Subjects.findOne({_id: Session.get(this._id });
+    }else{
+      return {};
+    }
+  },*/
+  urlImg :function(){
+      return this.url;
+    }
+
   });
 
   Template.uploadImage.events({
