@@ -10,6 +10,7 @@ Router.map(function(){
     template: 'subjectsEditPage',
     onBeforeAction: function(){
       setPageTitle("New Vehicle");
+      
     },
     waitOn: function(){
        return [ Meteor.subscribe('subjects'),
@@ -18,6 +19,9 @@ Router.map(function(){
        Meteor.subscribe('uploads')
        ]
     },
+    onAfterAction:function(){
+      Session.set('selectedSubjectId', this.params.id);
+    }
    
   });
 
@@ -116,12 +120,12 @@ Template.subjectsEditPage.events({
     var formObject = {
       name: $('#inputNameVehicle').val(),
       description: $('#inputDesc').val(),
-      url: $('#inputImgURL').val(),
+      url: '',
       createdAt: new Date(),
-      owner: Meteor.user().profile.name,
-      owner_id: Meteor.userId(),
-      sponsor: sponsor.name,
-      sponsor_id: sponsor._id
+     // owner: Meteor.user().profile.name,
+      //owner_id: Meteor.userId(),
+      //sponsor: sponsor.name,
+      //sponsor_id: sponsor._id
     };
 
     if(this._id){
@@ -131,10 +135,10 @@ Template.subjectsEditPage.events({
         name: formObject.name,
         description: formObject.description,
         url: '',
-        owner: formObject.owner,
-        owner_id: formObject.owner_id,
-        sponsor: formObject.sponsor,
-        sponsor_id: formObject.sponsor_id
+        //owner: formObject.owner,
+        //owner_id: formObject.owner_id,
+        //sponsor: formObject.sponsor,
+        //sponsor_id: formObject.sponsor_id
       }});
       // console.log('Subjects updated.  Now trying to rename other collections.')
       // Meteor.call('renameSubject', formObject, function(error, result){
@@ -151,12 +155,12 @@ Template.subjectsEditPage.events({
         name: formObject.name,
         description: formObject.description,
         url: formObject.url,
-        owner: formObject.owner,
-        owner_id: formObject.owner_id,
-        creator: Meteor.user().profile.name,
-        creator_id: Meteor.userId(),
-        sponsor: formObject.sponsor,
-        sponsor_id: formObject.sponsor_id,
+        //owner: formObject.owner,
+        //owner_id: formObject.owner_id,
+       // creator: Meteor.user().profile.name,
+       // creator_id: Meteor.userId(),
+       // sponsor: formObject.sponsor,
+        //sponsor_id: formObject.sponsor_id,
         forms: [],
         timestamp: new Date(),
         active: false
@@ -227,9 +231,13 @@ Template.subjectsEditPage.helpers({
       return Uploads.find();
     },
     urlImgVehicle:function(){
-      Meteor.call('urlImgVehicleMethod','selectedSubject',this.url);
-    } 
-
+      Session.set('imgurl', this.url);
+       Subjects.update({_id: 'selectedSubjectId'},{$set:{
+        url: this.url
+  }});
+      /*Meteor.call('urlImgVehicleMethod','selectedSubjectId',this.url);
+    */
+} 
   });
 
   Template.uploadImageVehicle.events({

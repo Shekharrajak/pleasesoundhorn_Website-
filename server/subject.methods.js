@@ -4,7 +4,7 @@ Meteor.methods({
     console.log(url +" adding into Subjects db");
     
     Subjects.update({_id: id},{$set:{
-        inputImgURL: url
+        url: url
   }});
   }
 })

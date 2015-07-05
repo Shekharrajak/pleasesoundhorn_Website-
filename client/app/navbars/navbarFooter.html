@@ -1,14 +1,35 @@
 <template name="navbarFooter">
-  <footer id="navbarFooter" style="height:1px;color:green;padding-top:10px">
-    <nav id="navbarFooterNav" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <footer id="navbarFooter">
+    <nav id="navbarFooterNav" class="navbar navbar-inverse navbar-bottom" role="navigation">
       <div class="container-fluid">
 
-        <div class="collapse navbar-collapse unselectable" id="bs-example-navbar-collapse-1">
+        <!-- <div class="collapse navbar-collapse unselectable" id="bs-example-navbar-collapse-1">
             <div id="footer">
       <div class="container">
         <p class="text-muted credit"><a href="#">PSH Pvt Limited</a> </p>
       </div>
-    </div>
+    </div> -->
+    <div class="social-icon">
+      <div class="container">
+        <div class="col-md-6 col-md-offset-3">            
+          <ul class="social-network">
+            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+            <li><a href="#" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+            <li><a href="#" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
+          </ul>           
+        </div>
+      </div>
+    </div>            
+    <div class="text-center">
+      <div class="copyright">
+        &copy; 2015 <a target="_blank" href="#" title="" style="color:green">PleaseSoundHorn.in</a>. All Rights Reserved.
+      </div>
+    </div>  
+
 
           {{#if isLoggedIn }}
             <ul class="nav navbar-nav">
@@ -70,7 +91,7 @@
           {{/if}}
 
         </div>
-      </div>
+     
     </nav>
   </footer>
 </template>

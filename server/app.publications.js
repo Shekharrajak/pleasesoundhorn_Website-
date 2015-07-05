@@ -37,9 +37,9 @@ Meteor.publish('uploads', function(){
 });
 
 Meteor.publish('uploadsVehicle', function(){
-  return Uploads.find();
+  return UploadsVehicle.find();
 });
 
 Meteor.publish('uploadsVehicle2', function(){
-  return Uploads.find();
+  return UploadsVehicle2.find();
 });
