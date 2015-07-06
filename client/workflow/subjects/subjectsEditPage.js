@@ -1,8 +1,10 @@
 Session.setDefault('selectedSubjectId', false);
 Session.setDefault('selectedSponsor', {_id: "---", name: "---"});
 Session.setDefault('isDeletingFormFromSubject', false);
-Session.setDefault('selectedFileIdBuy', null);
+Session.setDefault('selectedFileIdBuy', false);
 
+Meteor.subscribe('uploadsVehicle');
+Meteor.subscribe('subjects');
 
 
 Router.map(function(){
@@ -74,15 +76,17 @@ Router.map(function(){
   Template.uploadImageVehicle.events({
     'change input[type="file"]': function(evt) {
       console.log('changed');
+
       FS.Utility.eachFile(evt, function(file) {
         var fileObj = new FS.File(file);
         fileObj.customProperty = 'hmmm';
         UploadsVehicle.insert(fileObj, function(err) {
           console.log(err);
         });
-        Session.set('selectedFileIdBuy', this._id);
+         console.log(this.id);
+        
       });
-      
+      Session.set('selectedFileIdBuy', this._id);
     }
   });
 
@@ -173,7 +177,7 @@ Template.subjectsEditPage.events({
       var recordId = Subjects.update({_id: this._id},{$set:{
         name: formObject.name,
         description: formObject.description,
-        url: UploadsVehicle.find({ _id: Session.get('selectedFileIdBuy').id })
+        url: UploadsVehicle.findOne({ _id: 'selectedFileIdBuy'})
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
         //sponsor: formObject.sponsor,
@@ -194,7 +198,7 @@ Template.subjectsEditPage.events({
       var recordId = Subjects.insert({
         name: formObject.name,
         description: formObject.description,
-        url:  url: UploadsVehicle.find({ _id: Session.get('selectedFileIdBuy').id })
+        url: UploadsVehicle.findOne({ _id: Session.get('selectedFileIdBuy')}),
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
        // creator: Meteor.user().profile.name,
