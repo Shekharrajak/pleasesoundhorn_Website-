@@ -97,7 +97,7 @@ Items.allow({
 Uploads = new FS.Collection("uploads", {
   stores: [
     //this will store files in ~/uploads folder on your filesystem
-    new FS.Store.FileSystem("uploads", { path: "~/uploads" })
+    new FS.Store.FileSystem("uploads", { path: "/uploads" })
   ]
 });
 
@@ -127,7 +127,7 @@ Uploads.allow({
 UploadsVehicle = new FS.Collection("uploadsVehicle", {
   stores: [
     //this will store files in ~/uploads folder on your filesystem
-    new FS.Store.FileSystem("uploadsVehicle", { path: "~/uploadsVehicle" })
+    new FS.Store.FileSystem("uploadsVehicle", { path: "/uploadsVehicle" })
   ]
 });
 
@@ -155,7 +155,7 @@ UploadsVehicle.allow({
 
 UploadsVehicle2 = new FS.Collection("uploadsVehicle2",{
   stores:[
-      new FS.Store.FileSystem("uploadsVehicle2",{path: "~/uploadsVehicle2"})
+      new FS.Store.FileSystem("uploadsVehicle2",{path: "/uploadsVehicle2"})
   ]
 });
 UploadsVehicle2.allow({

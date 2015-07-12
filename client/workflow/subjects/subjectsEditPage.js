@@ -2,6 +2,7 @@ Session.setDefault('selectedSubjectId', false);
 Session.setDefault('selectedSponsor', {_id: "---", name: "---"});
 Session.setDefault('isDeletingFormFromSubject', false);
 Session.setDefault('selectedFileIdBuy', false);
+Session.setDefault('urlBuy', null);
 
 Meteor.subscribe('uploadsVehicle');
 Meteor.subscribe('subjects');
@@ -82,11 +83,14 @@ Router.map(function(){
         fileObj.customProperty = 'hmmm';
         UploadsVehicle.insert(fileObj, function(err) {
           console.log(err);
+         // Session.set('urlBuy', this.params.url);
+           Session.set('urlBuy', this.params.url);
         });
          console.log(this.id);
-        
+       // Session.set('urlBuy', this.params.url);
+     
       });
-      Session.set('selectedFileIdBuy', this._id);
+      
     }
   });
 
@@ -172,12 +176,15 @@ Template.subjectsEditPage.events({
 
     if(this._id){
       console.count('this._id: ' + this._id);
+     // var urlVar = urlBuy;
+     // Session.set('urlVar','urlBuy'); 
       //var fileObj = new FS.File(UploadsVehicle);
       //fileObj.findOne({ _id: Session.get('selectedFileIdBuy').id }).url;
       var recordId = Subjects.update({_id: this._id},{$set:{
         name: formObject.name,
         description: formObject.description,
-        url: UploadsVehicle.findOne({ _id: 'selectedFileIdBuy'})
+        //url: UploadsVehicle.findOne({ _id: 'selectedFileIdBuy'})
+         url: Session.get('urlBuy')
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
         //sponsor: formObject.sponsor,
@@ -198,7 +205,9 @@ Template.subjectsEditPage.events({
       var recordId = Subjects.insert({
         name: formObject.name,
         description: formObject.description,
-        url: UploadsVehicle.findOne({ _id: Session.get('selectedFileIdBuy')}),
+       // url: UploadsVehicle.findOne({ _id: Session.get('selectedFileIdBuy')}),
+       url: Session.get('urlBuy'),
+
         //owner: formObject.owner,
         //owner_id: formObject.owner_id,
        // creator: Meteor.user().profile.name,

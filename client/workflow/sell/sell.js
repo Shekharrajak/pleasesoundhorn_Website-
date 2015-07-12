@@ -1,6 +1,7 @@
 
 Meteor.subscribe('uploads');
 Meteor.subscribe('sponsors');
+Session.setDefault('urlSell', null);
 
   Template.uploadImage.helpers({
     uploads: function() {
@@ -32,12 +33,13 @@ Meteor.subscribe('sponsors');
       console.log('changed');
       FS.Utility.eachFile(evt, function(file) {
         var fileObj = new FS.File(file);
-        fileObj.customProperty = 'hmmm';
+        //fileObj.customProperty = 'hmmm';
         Uploads.insert(fileObj, function(err) {
           console.log(err);
         });
+        Session.set('urlSell', this.params.url);
       });
-      Session.set('selectedFileId', this._id);
+      
     }
   });
 
@@ -100,7 +102,9 @@ Template.sell.events({
         inputEmail:$('#inputEmail').val(),
         inputNumber:$('#inputNumber').val(),
         inputName:$('#inputName').val(),
-        inputImgUrl: Uploads.file.findOne({ _id: 'selectedFileId' }).url,
+        //inputImgUrl: Uploads.file.findOne({ _id: 'selectedFileId' }).url,
+        inputImgUrl: urlSell,
+
         createdAt: new Date(),
         //owner: Meteor.user().profile.name,
         //owner_id: Meteor.userId(),
