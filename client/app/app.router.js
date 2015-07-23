@@ -138,6 +138,19 @@ Router.map(function() {
       setPageTitle("Welcome");
     }
   });
+  this.route('landingPage', {
+    path: '/',
+    template: "landingPage",
+    yieldTemplates: getYieldTemplates(),
+    onBeforeAction: function() {
+      console.log('routing to: /landingPage');
+      setPageTitle("PleaseSoundHorn");
+    },
+     waitOn: function(){
+      Meteor.subscribe('book');
+      //Meteor.subscribe('sponsors');
+    }
+  });
   this.route('eulaRoute', {
     path: '/eula',
     template: 'eulaPage',

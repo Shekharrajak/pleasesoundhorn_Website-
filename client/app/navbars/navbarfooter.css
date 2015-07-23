@@ -9,7 +9,8 @@ ul.social-network {
   -o-transition: all 0.3s ease-in-out;
 }
 footer{
-	padding-top: 500px;
+	padding-top: 5px;
+	position: fixed;
 	background-color: none;
 	color: white;
 }
