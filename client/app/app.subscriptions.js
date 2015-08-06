@@ -1,0 +1,13 @@
+Deps.autorun(function(){
+  Meteor.subscribe('items');
+  Meteor.subscribe('forms');
+  Meteor.subscribe('data');
+  Meteor.subscribe('books');
+  Meteor.subscribe('sponsors');
+  Meteor.subscribe('subjects');
+  Meteor.subscribe('comments');
+  Meteor.subscribe('usersDirectory');
+  Meteor.subscribe('uploadsVehicle');
+  Meteor.subscribe('uploads');
+  Meteor.subscribe('uploadsVehicle2');
+});

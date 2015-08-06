@@ -1,0 +1,383 @@
+<template name="landingPage">
+  <div id="landingPage">
+
+    <div id="hero">
+      <div class="container">
+        <div class="browsers">
+         
+              
+         
+          <h1 class="hero-text animated bounceInDown"><b> <a style="color:white" class ="page-scroll" href="#bookForm" >BOOK </a> , <a style="color:white" class ="page-scroll" href="/buy" >BUY </a> , <a style="color:white" class ="page-scroll" href="/sell" >SELL </a></b>  All Heavy Motors </h1>
+        <!--   <p class="sub-text animated fadeInDown">
+            We are a reliable, young organisation, independent of changes on the capital markets. Quick decision making as well as developing long-term development plans will help us achieve our goals.
+          </p>
+ -->      
+          
+
+
+        </div>
+      </div>
+    </div>
+    <div class="container list-horiz wow fadeIn">
+            <ul style="background-color:#6AA121">
+              
+                <li style="width:200px;padding-left:-100px;padding-right:300px">
+                <a style="width:200px" href="#bookForm">
+                <img style="width:350px" src="/images/tbook.png"  alt="" class="img-circle">
+                               <!--  <img src="/bootstrap/images/download.png"  -->
+   
+                           </a>
+              
+                             <h5 style="width:200px"><b>Book Buy and Sell any heavy motor vehicle</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img style="width:300px;paddine-left:10px" src="/images/ttrack.png"  alt="" class="img-circle">
+                                
+                           </a>
+              
+                             <h5 style="width:250px"><b>Track your order (Coming Soon)</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img  style="width:200px;height:200px" src="/images/tphone.png" alt="" class="img-circle">
+                               
+                           </a>
+              
+                             <h5 style="width:100px"><b>Book @Phone call and whatsapp 07702666623</b></h5>
+                            
+                </li>
+                <li>
+                <a  href="#">
+                <img style="width:200px;padding-left:100px;" src="/images/troadsafty.png"  alt="" class="img-circle">
+                                
+                           </a>
+              
+                             <h5 style="width:200px"><b>#pshroadsafety (Join our road safety campaign to avoid accidents)</b></h5>
+                          
+                </li>
+            </ul>
+
+          </div>
+
+
+<section id ="bookForm"> 
+   <h1 class="hero-text animated fadeInDown"><b>BOOKING FORM</b></h1>
+  <div  class="container" style="padding-top:10px;padding-bottom:10px">
+   
+    <!-- <div class='animatedParent'>
+<h2 class='animated bounceInDown'>It Works!</h2>
+</div>  --> 
+      <form role="form" id="email-form" class="row wow tada">
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="inputSubject">Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Shubh Name">
+        </div>
+        <div class="form-group">
+          <label for="inputSubject"> Phone Number</label>
+          <input type="text" class="form-control" id="inputContact" placeholder="Contact number">
+        </div>
+         <div class="form-group">
+          <label for="inputEmail">Email ID </label>
+          <input type="email" data-fv-emailaddress-multiple="true" class="form-control" id="inputEmail" placeholder="Enter your active email ID">
+        </div>
+        <div class="row form-group">
+          <div class="col-xs-3">
+            <label for="inputSubject">Place(to)</label>
+            <input type="text" class="form-control" id="inputTo" placeholder="to">
+          </div>
+          <div class="col-xs-3">
+            <label for="inputBody">Place(from)</label>
+            <input type="text" class="form-control" id="inputFrom" placeholder="from">
+          </div>
+  
+        </div>
+         
+      </div>
+      <div class="col-md-6">
+    
+
+        
+        <div class="form-group wow fadeIn">
+         
+          <label for="inputDateBook">Booking date</label>
+          <div class="input-group datetimepicker">
+             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+             <input name="idInput" id="inputBookDate" class="set-due-date form-control" type="text"/>
+           </div>
+        </div>
+
+
+        <div class="form-group wow fadeIn">
+          <label for="inputVehicle">Select a vehicle </label>
+          
+           <select name="vehicleSelect">
+               {{#each vehicleSelect}}
+                  <option value="{{vId}}">{{v}}</option>
+               {{/each}}
+           </select>
+        </div>
+         <div class="form-group">
+          <label for="inputSubject">Number of vehicle</label>
+          <input type="text" class="form-control" id="inputVehicleNumber" placeholder="Contact number">
+        </div>
+        <div class="form-group">
+          <label for="inputSubject">Load Description</label>
+          <input type="text" class="form-control" id="inputLoad" placeholder="Details about load ">
+        </div>
+      </div>
+  
+       
+
+      </form>
+      <button id="saveBookButton" type ="submit" class = "btn btn-primary btn-lg btn-block row">BOOK NOW</button> 
+  </div>
+</section>
+    <div id="features">
+      <div class="container animated tada">
+        <div class="row header">
+          <div class="col-md-12">
+            <h2 id="featuresTitle">Work Culture</h2>
+            <p id="featuresSubTitle">We have an exceptional, flat organisational structure which allows for quick decision making and flexible reactions to the changing needs of the market.</p>
+          </div>
+        </div>
+
+
+        <div id="firstFeature" class="row feature wow fadeInLeft">
+          <div class="col-md-6 info">
+            <h4>Custom-made services</h4>
+            <p>
+             We offer solutions to large companies, but to small and medium enterprises as well. Well developed transport management and Customer relation systems will allow us to adjust every service to individual needs and requirements.
+            </p>
+            <br>
+            <h4>Dense Network Of locations</h4>
+              <p>A well planned location of our people allows for rapid transportation of goods enthrusted to us.</p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/device-thunderbolt-2.png" class="img-responsive" alt="feature1" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div id="secondFeature" class="row feature backwards wow fadeInRight">
+          <div class="col-md-6 info">
+            <h4>Cross-Platform Suite to Manage Data from the Office to the Bedside</h4>
+            <p>
+                We continuously develop and improve our processes. We are aware that investments in the transport network are closely connected with actions aimed at optimisation of processes and IT systems, which translate into quick and timely deliveries.
+            </p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/device-multi-2.png" class="img-responsive" alt="feature2" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div id="firstFeature" class="row feature wow fadeInLeft">
+          <div class="col-md-6 info">
+            <h4>Continuous growth and process optimisation</h4>
+            <p>
+             We continuously develop and improve our processes. We are aware that investments in the transport network are closely connected with actions aimed at optimisation of processes and IT systems, which translate into quick and timely deliveries.
+            </p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/device-macbook-formbuilder.png" class="img-responsive" alt="feature1" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div id="secondFeature" class="row feature backwards wow fadeInRight">
+          <div class="col-md-6 info">
+            <h4>Specialised fleet dependent on transported goods</h4>
+            <p>
+              We have different means of transport at our disposal suitable for the requirements of different sectors, which allows us to offer appropriate solutions to every Customer.
+            </p>
+            <br>
+            <h4>Modern warehousing capacity</h4>
+            <p>
+              Our Customers can use diversified warehouse capacity adjusted to the specific product requirements.
+            </p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/device-ipad-2.png" class="img-responsive" alt="feature2" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div id="firstFeature" class="row feature wow fadeInLeft">
+          <div class="col-md-6 info">
+            <h4>Validation Suite for Regulatory Compliance</h4>
+            <p>
+               We continuously develop and improve our processes. We are aware that investments in the transport network are closely connected with actions aimed at optimisation of processes and IT systems, which translate into quick and timely deliveries.
+            </p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/validation-testing.png" class="img-responsive" alt="feature1" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div id="secondFeature" class="row feature backwards wow fadeInRight">
+          <div class="col-md-6 info">
+            <h4>HIPAA Compliant</h4>
+            <p>
+               We continuously develop and improve our processes. We are aware that investments in the transport network are closely connected with actions aimed at optimisation of processes and IT systems, which translate into quick and timely deliveries.
+            </p>
+          </div>
+          <div class="col-md-6 image">
+            <img src="images/landing/devices/hipaa-log-closeup.png" class="img-responsive" alt="feature2" />
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div id="pricing">
+      <div class="container wow fadeInDown">
+        <div class="row header">
+          <div class="col-md-12">
+            <h3 id="pricingTitle">Our Services</h3>
+            <p id="pricingSubtitle">Book, buy and sell + other info details</p>
+          </div>
+        </div>
+        <div class="row charts">
+          <div class="col-md-4">
+            <div id="firstPriceCard" class="chart first">
+              <!-- <div class="quantity">
+                <span class="dollar">$</span>
+                <span class="price"></span>
+                <span class="period">/participant</span>
+              </div> -->
+              <div class="plan-name">BOOK</div>
+              <div class="specs">
+                <div class="spec">
+                 Inforamtion about book <span class="variable">Inforamtion about book</span> Inforamtion about book
+                </div>
+                <div class="spec">
+                  Inforamtion about book<span class="variable">Inforamtion about book</span>
+                </div>
+                <div class="spec">
+                  Inforamtion about book<span class="variable">Inforamtion about book</span>
+                </div>
+                <div class="spec">
+                  Inforamtion about book <span class="variable">Inforamtion about book</span>
+                </div>
+
+
+              </div>
+              <a class="btn-signup button-clear" href="/book">
+                <span>BOOK NOW</span>
+              </a>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <div id="secondPriceCard" class="chart featured">
+              <div class="popular"></div>
+             <!--  <div class="quantity">
+                <span class="dollar">$</span>
+                <span class="price">-</span>
+                <span class="period">/participant</span>
+              </div>
+ -->              <div class="plan-name">BUY</div>
+              <div class="specs">
+                <div class="spec">
+                  <span class="variable">Inforamtion about buy</span>
+                  to
+                  <span class="variable">Inforamtion about buy</span>
+                 Inforamtion about buy
+                  </div>
+                  <div class="spec">
+                    <span class="variable">Inforamtion about buy</span> Inforamtion about buy
+                  </div>
+                  <div class="spec">
+                   Inforamtion about buy <span class="variable">Inforamtion about buy</span>
+                  </div>
+                  <div class="spec">
+                    Inforamtion about buy<span class="variable">Inforamtion about buy</span>
+                  </div>
+              </div>
+              <a class="btn-signup button-clear" href="/buy">
+                <span >BUY NOW</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div id="thirdPriceCard" class="chart last">
+             <!--  <div class="quantity">
+                <span class="dollar">$</span>
+                <span class="price">-</span>
+                <span class="period">/participant</span>
+              </div> -->
+              <div class="plan-name">SELL</div>
+              <div class="specs">
+
+                <div class="spec">
+                  over <span class="variable">Inforamtion about sell</span> Inforamtion about sell
+                </div>
+                <div class="spec">
+                  <span class="variable">Inforamtion about sell</span> Inforamtion about sell
+                </div>
+                <div class="spec">
+                Inforamtion about buy <span class="variable">Inforamtion about sell</span>
+                </div>
+                <div class="spec">
+                  FDA <span class="variable">Inforamtion about sell</span>
+                </div>
+
+
+              </div>
+              <a class="btn-signup button-clear" href="/sell">
+                <span>SELL NOW</span>
+              </a>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+<hr class ="wow fadeInLeft">
+
+<!--    <div id="slider">
+      <div class="container">
+        <div class="row header">
+          <div class="col-md-12">
+            <h3>Your roadmap to get your medication from the discovery to FDA approval</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 slide-wrapper">
+            <div class="slideshow">
+              <div class="btn-nav prev"></div>
+              <div class="btn-nav next"></div>
+              <div class="slide active">
+                <img src="images/landing/vials.jpg" alt="slide3" />
+              </div>
+              <div class="slide">
+                <img src="images/landing/slider/slide4.png" alt="slide4" />
+              </div>
+              <div class="slide">
+                <img src="images/landing/slider/slide1.png" alt="slide1" />
+              </div>
+              <div class="slide">
+                <img src="images/landing/slider/slide5.png" alt="slide5" />
+              </div>
+              <div class="slide">
+                <img src="images/landing/slider/slide2.png" alt="slide2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+    
+</template>
+
+
