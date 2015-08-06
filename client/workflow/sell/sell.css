@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .sellupload li {
 	
 	  list-style:none;
@@ -12,4 +13,20 @@
 	
 
 
+=======
+.sellupload li {
+	
+	  list-style:none;
+	  float: left;
+	margin: 0px;
+	position: relative;
+	left: -10px;
+
+	background: none;
+	
+	padding:2px 0px 100px 1px;
+	
+
+
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52
 }

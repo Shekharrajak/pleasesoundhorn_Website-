@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template name="formPreviewPage">
   <div id="formPreviewPage" class="fullheight padded">
     <div class="container">
@@ -21,3 +22,28 @@
     </div>
   </div>
 </template>
+=======
+<template name="formPreviewPage">
+  <div id="formPreviewPage" class="fullheight padded">
+    <div class="container">
+      <div class="col col-md-12">
+
+      <div class="card panel panel-default">
+        <div class="panel-heading">
+          <i class="fa {{getStar}} fa-2x pull-right"></i>
+          <h4>{{formName}}</h4>
+        </div>
+        <div id="formBody" class="panel-body">
+          {{#each formSchema}}
+            {{> formBlockPreview }}
+          {{/each}}
+        </div>
+        <div class="panel-footer">
+          <div>{{ _id }}</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52

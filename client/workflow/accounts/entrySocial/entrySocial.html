@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template name='entrySocial'>
   <div id="entrySocial">
     <button class="btn" id="entry-{{this}}" name="{{this}}">
@@ -9,3 +10,16 @@
     </button>
   </div>
 </template>
+=======
+<template name='entrySocial'>
+  <div id="entrySocial">
+    <button class="btn" id="entry-{{this}}" name="{{this}}">
+      {{#if google}}
+        <i class="fa fa-{{this}}-plus"></i> Sign {{buttonText}} with {{capitalize this}}
+      {{else}}
+        <i class="fa fa-{{this}}"></i> Sign {{buttonText}} with {{capitalize this}}
+      {{/if}}
+    </button>
+  </div>
+</template>
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52

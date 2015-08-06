@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /bootstrap-3
 /iron-router
 /blaze-layout
@@ -16,3 +17,23 @@
 /iron-core
 /iron-dynamic-template
 /clinical-ui-hipaa-log
+=======
+/bootstrap-3
+/iron-router
+/blaze-layout
+/event-hooks
+/browser-detection
+/auto-nprogress
+/nprogress
+/mousetrap
+/bowser
+/font-awesome
+/session-extended-api
+/roles
+/selenium-nightwatch
+/moment
+/iron-layout
+/iron-core
+/iron-dynamic-template
+/clinical-ui-hipaa-log
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52

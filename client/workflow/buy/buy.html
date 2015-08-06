@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <template name="buy">
      <div id="hero">
@@ -59,3 +60,66 @@
     <td>{{ description }}</td>
   </tr>
 </template>
+=======
+
+<template name="buy">
+     <div id="hero">
+      <div class="container">
+        <div class="browsers">
+         
+              
+         
+          <h1 class="hero-text animated fadeInDown"><b> <a class ="page-scroll" href="#bookForm" >BOOK </a> , <a class ="page-scroll" href="/buy" >BUY </a> , <a class ="page-scroll" href="/sell" >SELL </a></b>  All Heavy Motors </h1>
+        <!--   <p class="sub-text animated fadeInDown">
+            We are a reliable, young organisation, independent of changes on the capital markets. Quick decision making as well as developing long-term development plans will help us achieve our goals.
+          </p>
+ -->
+
+        </div>
+      </div>
+    </div>
+
+ <div class="container list-horiz wow fadeIn">
+            
+
+              <table id="tableOfStudyForms" class="table table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Vehicle Name</th>
+            <th>Image</th>
+            
+            <th>Description</th>
+            <!-- <th>Creator</th> -->
+           
+          </tr>
+        </thead>
+        <tbody>
+          {{#each subjectsList}}
+            {{> subjectRowItem }}
+          {{/each}}
+        </tbody>
+      </table>
+      <hr>
+      
+</div>
+    
+</template>
+
+<template name="subjectRowItem">
+  <tr class="individualFormRow">
+<!--     <td><i class="fa {{ getStar }}"></i></td> -->
+<!--     <td>{{ createdAt }}</td> -->
+    <td>{{ _id }}</td>
+    <td>{{ name }}</td>
+    
+    <td><a href="{{url}}">
+          <img style = "width:200px;height:150px" src="{{url}}" alt="{{name}}" />
+        </a>
+        <a href="{{url}}">
+          Download
+        </a></td>
+    <td>{{ description }}</td>
+  </tr>
+</template>
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52

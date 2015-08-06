@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 # This file contains information which helps Meteor properly upgrade your
 # app when you run 'meteor update'. You should check it into version control
 # with your project.
 
 notices-for-0.9.0
 notices-for-0.9.1
+=======
+# This file contains information which helps Meteor properly upgrade your
+# app when you run 'meteor update'. You should check it into version control
+# with your project.
+
+notices-for-0.9.0
+notices-for-0.9.1
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52
 0.9.4-platform-file
 notices-for-facebook-graph-api-2

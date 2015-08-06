@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template name="subjectsEditPage">
   <div id="subjectsEditPage" class="page">
     <div class="hidden">{{resized}}</div>
@@ -95,3 +96,102 @@
   </div>         
       
 </template>
+=======
+<template name="subjectsEditPage">
+  <div id="subjectsEditPage" class="page">
+    <div class="hidden">{{resized}}</div>
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+          <h4>Buy section content </h4>
+          <br>
+        </div>
+        <div class="col col-md-12">
+          <label for="inputNameVehicle" >Vehicle Name</label>
+          <input id="inputNameVehicle" type="text" class="form-control" placeholder="Model number and company name" value="{{name}}">
+          <br>
+
+          <label for="inputDesc" >Vehicle Description</label>
+          <input id="inputDesc" type="text" class="form-control" placeholder="Tell something about Vehicle" value="{{description}}">
+          <br>
+          <hr>
+           {{> uploadImageVehicle}}
+          <hr>
+          {{> hello}}
+        </div>
+      </div>
+      <hr>
+
+      <div id="saveSubjectButton" class="pull-right btn btn-info">Save Vehicle</div>
+      {{#if notNewSubject }}
+        <div id="deleteSubjectButton" class="pull-right btn btn-danger with-right-margin">Delete Subject</div>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="uploadImageVehicle">
+  <form>
+    <input id ="inputImgURL" type="file" name="image" />
+  </form>
+  <br/>
+
+  {{#each uploadsVehicle}}
+    <p>
+      {{#if isImage}}
+        <a href="{{url}}">
+          <img   style = "width:200px;height:150px" src="{{url}}" alt="{{original.name}}" />
+        </a>
+        <a href="{{url download=true}}">
+          Download
+        </a>
+      {{else}}
+        {{original.name}}
+        <a href="{{url download=true}}">
+          Download
+        </a>
+         {{urlImgVehicle}} 
+      {{/if}}
+      <br/>
+      {{> FS.DeleteButton class="btn btn-danger btn-xs"}}
+    </p>
+  {{/each}}
+</template>
+
+<template name="hello">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h5>Upload file </h5>
+      </div>
+      <div class="panel-body">
+        <p>add file
+          <span class="btn btn-primary btn-file ">
+            <input multiple class="file fileInput" type="file"/>
+           </span>
+        </p>
+       </div>
+        <div class="col-md-9">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <th>Name</th>
+                    <th>Download</th>
+                </thead>
+                <tbody>
+                  {{#each uploadsVehicle2}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td><a class="btn btn-primary" href="{{url download=true}}">Download</a></td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+            </table>
+          </div> 
+       <div class="panel-footer">
+
+      </div>
+    </div>
+  </div>         
+      
+</template>
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52

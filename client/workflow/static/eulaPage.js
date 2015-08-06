@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Template.eulaPage.events({
 
 });
+=======
+Template.eulaPage.events({
+
+});
+>>>>>>> 5618854daf14009ec2accbd7cab722fba5e35d52
